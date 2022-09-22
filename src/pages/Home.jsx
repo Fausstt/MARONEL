@@ -14,6 +14,7 @@ function Home({ previewImg, previewList }) {
       }}
     >
       <CaruselBox previewImg={previewImg} />
+<></>
 
       <PreviewList previewList={previewList} />
     </Container>
