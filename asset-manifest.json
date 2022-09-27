@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/kofetel/static/css/main.ce81eea4.css",
+    "main.js": "/kofetel/static/js/main.2e0948bd.js",
+    "index.html": "/kofetel/index.html",
+    "main.ce81eea4.css.map": "/kofetel/static/css/main.ce81eea4.css.map",
+    "main.2e0948bd.js.map": "/kofetel/static/js/main.2e0948bd.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ce81eea4.css",
+    "static/js/main.2e0948bd.js"
+  ]
+}
