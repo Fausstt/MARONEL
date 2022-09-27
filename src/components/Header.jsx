@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import { Favorite, Menu, Search, ShoppingBasket } from '@mui/icons-material';
 import {
@@ -8,84 +9,127 @@ import {
   Container,
   IconButton,
   Toolbar,
-  Typography,
 } from '@mui/material';
 
+import { pages } from '../data/data';
+import { useState } from 'react';
+import MenuList from './MenuList';
+
 function Header(props) {
+  const [openMenu, setOpenMenu] = useState(null);
+
   return (
     <AppBar
       position='static'
       sx={{ mb: '30px' }}
     >
       <Container maxWidth='xl'>
-        <Toolbar disableGutters>
-          <IconButton sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }}>
-            logo
-          </IconButton>
-
-          <Typography
-            variant='h6'
-            noWrap
-            sx={{
-              mr: 4,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-            }}
+        {/* большой */}
+        <Toolbar
+          disableGutters
+          sx={{ display: { xs: 'none', md: 'flex' } }}
+        >
+          <Link
+            className='link'
+            to={'/'}
           >
-            MARONEL
-          </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            <Button sx={{ my: 2, color: 'white', display: 'block' }}>
-              Products
-            </Button>
-            <Button sx={{ my: 2, color: 'white', display: 'block' }}>
-              Pricing
-            </Button>{' '}
-            <Button sx={{ my: 2, color: 'white', display: 'block' }}>
-              Blog
-            </Button>
-          </Box>
-
-          <Box
-            sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, gap: 1 }}
-          >
-            <IconButton color='inherit'>
-              <Menu />
+            <IconButton
+              variant='h6'
+              sx={{
+                mr: 4,
+                fontFamily: 'monospace',
+                fontWeight: 700,
+                letterSpacing: '.3rem',
+                color: 'white',
+              }}
+            >
+              MARONEL
             </IconButton>
-            <IconButton color='inherit'>
-              <Search />
-            </IconButton>
+          </Link>
+
+          <Box sx={{ flexGrow: 1, display: 'flex' }}>
+            {pages.map((item) => (
+              <Link
+                key={item.id}
+                to={item.href}
+                className='link'
+              >
+                <Button sx={{ my: 2, color: 'white', display: 'block' }}>
+                  {item.lable}
+                </Button>
+              </Link>
+            ))}
           </Box>
-
-          <IconButton sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }}>
-            logo
-          </IconButton>
-
-          <Typography
-            variant='h5'
-            noWrap
-            sx={{
-              mr: 2,
-              display: { xs: 'flex', md: 'none' },
-              flexGrow: 1,
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            MARONEL
-          </Typography>
 
           <Box
             sx={{
               flexGrow: 0,
               display: 'flex',
-              gap: { xs: 2, md: 5 },
+              gap: 5,
+            }}
+          >
+            <IconButton color='inherit'>
+              <Favorite />
+            </IconButton>
+            <IconButton color='inherit'>
+              <ShoppingBasket />
+            </IconButton>
+          </Box>
+        </Toolbar>
+        
+        {/* маленький */}
+        <Toolbar
+          disableGutters
+          sx={{ display: { sx: ' flex', md: 'none' } }}
+        >
+          <Box sx={{ flexGrow: 1, display: 'flex', gap: 1 }}>
+            <>
+              <IconButton
+                onClick={(e) => setOpenMenu(e.currentTarget)}
+                color='inherit'
+              >
+                <Menu />
+              </IconButton>
+              <MenuList
+                list={pages}
+                openMenu={openMenu}
+                closeMenu={() => setOpenMenu(null)}
+              />
+            </>
+
+            <IconButton color='inherit'>
+              <Search />
+            </IconButton>
+          </Box>
+
+          <Link
+            className='link'
+            to={'/'}
+            style={{
+              mr: 2,
+              flexGrow: 1,
+              fontFamily: 'monospace',
+              color: 'inherit',
+            }}
+          >
+            <IconButton
+              variant='h5'
+              sx={{
+                mr: 2,
+                fontWeight: 700,
+                letterSpacing: '.3rem',
+                color: 'inherit',
+              }}
+            >
+              MARONEL
+            </IconButton>
+          </Link>
+
+          <Box
+            sx={{
+              flexGrow: 0,
+              display: 'flex',
+              gap: 2,
             }}
           >
             <IconButton color='inherit'>

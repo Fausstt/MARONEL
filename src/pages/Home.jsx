@@ -1,12 +1,11 @@
 import React from 'react';
-import { Box, Container, Grid } from '@mui/material';
+import { Box } from '@mui/material';
 import CaruselBox from '../components/CaruselBox';
 import PreviewList from '../components/GridList';
 
 function Home({ previewImg, previewList }) {
   return (
-    <Container
-      maxWidth='xl'
+    <Box
       style={{
         display: 'flex',
         flexDirection: 'column',
@@ -14,10 +13,9 @@ function Home({ previewImg, previewList }) {
       }}
     >
       <CaruselBox previewImg={previewImg} />
-<></>
 
       <PreviewList previewList={previewList} />
-    </Container>
+    </Box>
   );
 }
 

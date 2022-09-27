@@ -4,14 +4,7 @@ import { Carousel } from 'react-bootstrap';
 
 function CaruselBox({ w = 1500, h = 660, previewImg }) {
   return (
-    <Box
-      sx={{
-        overflow: 'hidden',
-        maxHeight: h,
-        maxWidth: w,
-        width: '100%',
-      }}
-    >
+    <Box>
       <Carousel
         indicators={false}
         fade

@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
 
+import App from './components/App';
 import { createTheme, ThemeProvider } from '@mui/material';
-
-import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const theme = createTheme({
@@ -19,10 +19,9 @@ const theme = createTheme({
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  // <BrowserRouter>
+  <BrowserRouter>
     <ThemeProvider theme={theme}>
       <App />
     </ThemeProvider>
-  // </BrowserRouter>
+  </BrowserRouter>
 );
-

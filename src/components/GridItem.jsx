@@ -15,7 +15,7 @@ function GridItem({ item }) {
         sx={{
           padding: 6,
           width: '100%',
-          backgroundPosition: 'center',
+          backgroundSize: 'cover',
           backgroundImage: `url(${item.img})`,
         }}
         onMouseOver={() => setIsHover(true)}
@@ -34,8 +34,10 @@ function GridItem({ item }) {
               height: '100%',
               while: '100%',
               color: '#fff',
-              transition: 'background-color 0.5s linear',
-              bgcolor: `${isHover ? 'rgba(0,0,0,0.4)' : 'rgba(0,0,0,0.0)'}`,
+              transitionDuration: '0.5s',
+              bgcolor: `${
+                isHover ? 'rgba(241, 104, 97,0.4)' : 'rgba(241, 104, 97,0.0)'
+              }`,
             }}
           >
             <Typography
@@ -55,6 +57,13 @@ function GridItem({ item }) {
                 <Button
                   color='inherit'
                   variant='outlined'
+                  sx={{
+                    transitionDuration: '0.5s',
+                    '&:hover': {
+                      bgcolor: '#f16861',
+                      borderColor: '#f16861',
+                    },
+                  }}
                 >
                   Переглянуты
                 </Button>
