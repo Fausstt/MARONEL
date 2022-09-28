@@ -15,7 +15,7 @@ import { pages } from '../data/data';
 import { useState } from 'react';
 import MenuList from './MenuList';
 
-function Header(props) {
+function Header({Basket}) {
   const [openMenu, setOpenMenu] = useState(null);
 
   return (
@@ -71,7 +71,7 @@ function Header(props) {
             <IconButton color='inherit'>
               <Favorite />
             </IconButton>
-            <IconButton color='inherit'>
+            <IconButton color='inherit' onClick={Basket}>
               <ShoppingBasket />
             </IconButton>
           </Box>
@@ -135,7 +135,7 @@ function Header(props) {
             <IconButton color='inherit'>
               <Favorite />
             </IconButton>
-            <IconButton color='inherit'>
+            <IconButton color='inherit' onClick={Basket}>
               <ShoppingBasket />
             </IconButton>
           </Box>

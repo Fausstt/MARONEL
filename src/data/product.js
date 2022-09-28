@@ -1,0 +1,58 @@
+export const product = [
+  {
+    id: 1,
+    img: 'https://via.placeholder.com/250x250',
+    title: 'трюфель, 1шт',
+    body: '',
+    prise: '54',
+  },
+  {
+    id: 2,
+    img: 'https://via.placeholder.com/250x250',
+    title: 'трюфель, 1шт',
+    body: '',
+    prise: '54',
+  },
+  {
+    id: 3,
+    img: 'https://via.placeholder.com/250x250',
+    title: 'трюфель, 1шт',
+    body: '',
+    prise: '54',
+  },
+  {
+    id: 4,
+    img: 'https://via.placeholder.com/250x250',
+    title: 'трюфель, 1шт',
+    body: '',
+    prise: '54',
+  },
+  {
+    id: 5,
+    img: 'https://via.placeholder.com/250x250',
+    title: 'трюфель, 1шт',
+    body: '',
+    prise: '54',
+  },
+  {
+    id: 6,
+    img: 'https://via.placeholder.com/250x250',
+    title: 'трюфель, 1шт',
+    body: '',
+    prise: '54',
+  },
+  {
+    id: 7,
+    img: 'https://via.placeholder.com/250x250',
+    title: 'трюфель, 1шт',
+    body: '',
+    prise: '54',
+  },
+  {
+    id: 8,
+    img: 'https://via.placeholder.com/250x250',
+    title: 'трюфель, 1шт',
+    body: '',
+    prise: '54',
+  },
+];
