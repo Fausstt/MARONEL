@@ -14,7 +14,7 @@ import { Container } from '@mui/material';
 import Basket from './Basket';
 
 function App(props) {
-  const [isBasket, setIsBascet] = useState(true);
+  const [isBasket, setIsBascet] = useState(false);
   return (
     <>
       <>

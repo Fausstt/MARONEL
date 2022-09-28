@@ -1,6 +1,5 @@
 import { Close } from '@mui/icons-material';
 import {
-  AppBar,
   Box,
   Divider,
   IconButton,

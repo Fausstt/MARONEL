@@ -21,7 +21,7 @@ function ProductItem({ product }) {
         textAlign: 'center',
         '&:hover': {
           boxShadow:
-            '1px 1px .1em rgba(0, 0, 0, 0.5), -1px -1px .1em rgba(0, 0, 0, 0.459)',
+            '1px 1px .1em rgba(0, 0, 0, 0.5), -1px -1px .1em rgba(0, 0, 0, 0.5)',
         },
       }}
     >

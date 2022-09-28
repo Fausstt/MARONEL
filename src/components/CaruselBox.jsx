@@ -12,6 +12,11 @@ function CaruselBox({ w = 1500, h = 660, previewImg }) {
         {previewImg.map((item, index) => (
           <Carousel.Item key={index}>
             <img
+              style={{
+                objectFit:'cover',
+                width:'1488px',
+                height:'660px',
+              }}
               className='d-block w-100'
               src={item.img}
               alt={item.lable}

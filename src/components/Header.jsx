@@ -1,7 +1,8 @@
 import React from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import { Favorite, Menu, Search, ShoppingBasket } from '@mui/icons-material';
+import { Menu, Search, ShoppingBasket } from '@mui/icons-material';
 import {
   AppBar,
   Box,
@@ -12,10 +13,11 @@ import {
 } from '@mui/material';
 
 import { pages } from '../data/data';
-import { useState } from 'react';
 import MenuList from './MenuList';
+import SearchCastom from './UI/SearchCastom';
 
-function Header({Basket}) {
+function Header({ Basket }) {
+  const [SearchFocus, setSearhFocus] = useState(false);
   const [openMenu, setOpenMenu] = useState(null);
 
   return (
@@ -68,21 +70,27 @@ function Header({Basket}) {
               gap: 5,
             }}
           >
-            <IconButton color='inherit'>
-              <Favorite />
-            </IconButton>
-            <IconButton color='inherit' onClick={Basket}>
+            <>
+              <SearchCastom
+                placeholder={'Поиск...'}
+                setSearhFocus={setSearhFocus}
+              />
+            </>
+            <IconButton
+              color='inherit'
+              onClick={Basket}
+            >
               <ShoppingBasket />
             </IconButton>
           </Box>
         </Toolbar>
-        
+
         {/* маленький */}
         <Toolbar
           disableGutters
           sx={{ display: { sx: ' flex', md: 'none' } }}
         >
-          <Box sx={{ flexGrow: 1, display: 'flex', gap: 1 }}>
+          <Box sx={{ flexGrow: 2, display: 'flex', gap: 1 }}>
             <>
               <IconButton
                 onClick={(e) => setOpenMenu(e.currentTarget)}
@@ -96,16 +104,13 @@ function Header({Basket}) {
                 closeMenu={() => setOpenMenu(null)}
               />
             </>
-
-            <IconButton color='inherit'>
-              <Search />
-            </IconButton>
           </Box>
 
           <Link
             className='link'
             to={'/'}
             style={{
+              display: `${SearchFocus ? 'none' : 'flex'}`,
               mr: 2,
               flexGrow: 1,
               fontFamily: 'monospace',
@@ -132,10 +137,17 @@ function Header({Basket}) {
               gap: 2,
             }}
           >
-            <IconButton color='inherit'>
-              <Favorite />
-            </IconButton>
-            <IconButton color='inherit' onClick={Basket}>
+            <>
+              <SearchCastom
+                placeholder={'Поиск...'}
+                setSearhFocus={setSearhFocus}
+              />
+            </>
+
+            <IconButton
+              color='inherit'
+              onClick={Basket}
+            >
               <ShoppingBasket />
             </IconButton>
           </Box>
