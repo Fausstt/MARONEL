@@ -1,7 +1,8 @@
 export const pages = [
-  { id: '1', lable: 'Products', href: '/productions' },
-  { id: '2', lable: 'Pricing', href: '/' },
-  { id: '3', lable: 'Blog', href: '/' },
+  { id: '1', lable: 'Про нас', href: '/' },
+  { id: '2', lable: 'Каталог', href: '/productions' },
+  { id: '3', lable: `Доставка та оплата`, href: '/' },
+  { id: '4', lable: 'Контакти', href: '/' },
 ];
 
 export const previewSlider = [

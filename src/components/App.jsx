@@ -12,6 +12,7 @@ import { previewSlider, previewList } from '../data/data';
 import '../styles/App.scss';
 import { Container } from '@mui/material';
 import Basket from './Basket';
+import Card from '../pages/Card';
 
 function App(props) {
   const [isBasket, setIsBascet] = useState(false);
@@ -38,6 +39,10 @@ function App(props) {
             <Route
               path='/productions'
               element={<Productions />}
+            />
+            <Route
+              path='/productions/:id'
+              element={<Card />}
             />
           </Routes>
         </Container>

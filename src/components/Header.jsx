@@ -49,7 +49,7 @@ function Header({ Basket }) {
             </IconButton>
           </Link>
 
-          <Box sx={{ flexGrow: 1, display: 'flex' }}>
+          <Box sx={{ flexGrow: 1, display: 'flex', gap: 1 }}>
             {pages.map((item) => (
               <Link
                 key={item.id}
