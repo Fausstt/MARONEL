@@ -41,7 +41,7 @@ function App(props) {
               element={<Productions />}
             />
             <Route
-              path='/productions/:id'
+              path='/productions/id'
               element={<Card />}
             />
           </Routes>
