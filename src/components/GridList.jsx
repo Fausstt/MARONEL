@@ -10,12 +10,10 @@ function GridList({ previewList }) {
         spacing={5}
       >
         {previewList.map((item) => (
-          <>
-            <GridItem
-              key={item.id}
-              item={item}
-            />
-          </>
+          <GridItem
+            key={item.id}
+            item={item}
+          />
         ))}
       </Grid>
     </Box>

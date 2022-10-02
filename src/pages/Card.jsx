@@ -14,16 +14,16 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { useParams } from 'react-router';
-// import CaruselBox from '../components/CaruselBox';
+import CaruselBox from '../components/CaruselBox';
 import { product } from '../data/product';
 
 function Card(props) {
   const { id } = useParams();
   const [ProductList, setProductList] = useState(product);
-  const [Product, setProduct] = useState({});
+  const [Product, setProduct] = useState({img: []});
   const [value, setValue] = useState(0);
   const [Quantity, setQuantity] = useState(1);
-  
+
   const addProduct = () => {
     for (let i of ProductList) {
       if (i.id === id) {
@@ -31,7 +31,7 @@ function Card(props) {
       }
     }
   };
-  
+
   useEffect(() => {
     addProduct();
   }, []);
@@ -67,20 +67,14 @@ function Card(props) {
             height: '550px',
           }}
         >
-          <ArrowBackIos fontSize='large' />
-          <img
-            style={{
-              objectFit: 'cover',
-              height: '500px',
-              width: '800px',
-              borderRadius: '15px',
-            }}
-            // src={Product.img[0]}
-            src='https://scontent-iev1-1.xx.fbcdn.net/v/t1.6435-9/159265655_3843698749082372_7781602593632349880_n.jpg?stp=dst-jpg_s640x640&_nc_cat=106&ccb=1-7&_nc_sid=a26aad&_nc_ohc=k35yR-Ef0mcAX8GXRFS&_nc_ht=scontent-iev1-1.xx&oh=00_AT9M0VmJ0w653_YUbfC17mhB4XIyil9gDL0SGIGcVVbW8A&oe=635CE2A6'
-            alt={Product.title}
+          <CaruselBox 
+          previewImg={Product.img} 
+          w={'800px'}
+          h={'500px'}
+          interval={null}
           />
-          <ArrowForwardIos fontSize='large' />
         </Box>
+
         <Box
           sx={{
             display: 'flex',
@@ -110,7 +104,9 @@ function Card(props) {
             <List>
               {Product.composition.map((item) => (
                 <ListItem key={item.name}>
-                  <ListItemText>{item.name} - {item.wig}</ListItemText>
+                  <ListItemText>
+                    {item.name} - {item.wig}
+                  </ListItemText>
                 </ListItem>
               ))}
             </List>

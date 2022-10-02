@@ -12,7 +12,7 @@ function Home({ previewImg, previewList }) {
         gap: 100,
       }}
     >
-      <CaruselBox previewImg={previewImg} />
+      <CaruselBox previewImg={previewImg} fade/>
 
       <PreviewList previewList={previewList} />
     </Box>
