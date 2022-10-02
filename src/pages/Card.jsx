@@ -3,14 +3,13 @@ import {
   AppBar,
   Box,
   Button,
-  IconButton,
   Tab,
   Tabs,
   Typography,
 } from '@mui/material';
 import React from 'react';
 import { useState } from 'react';
-import CaruselBox from '../components/CaruselBox';
+// import CaruselBox from '../components/CaruselBox';
 
 function Card(props) {
   const [value, setValue] = useState(0);
@@ -30,7 +29,14 @@ function Card(props) {
         Макарон із солоною карамеллю
       </Typography>
 
-      <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: { xs: 'column', lg: 'row' },
+          alignItems: { xs: 'center', lg: 'normal' },
+          justifyContent: 'space-between',
+        }}
+      >
         <Box
           sx={{
             display: 'flex',
@@ -110,7 +116,11 @@ function Card(props) {
             </div>
           )}
           <div
-            style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '20px',
+            }}
           >
             <div
               style={{
