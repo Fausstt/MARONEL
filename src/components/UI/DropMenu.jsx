@@ -11,20 +11,20 @@ function DropMenu({ openMenu, closeMenu, list }) {
     >
       <List sx={{ width: '300px' }}>
         {list.map((item) => (
-          <MenuItem>
-            <Link
-              className='link'
-              key={item.id}
-              to={item.href}
-            >
+          <Link
+            className='link'
+            key={item.id}
+            to={item.href}
+          >
+            <MenuItem>
               <Button
                 onClick={closeMenu}
                 sx={{ color: 'black' }}
               >
                 {item.lable}
               </Button>
-            </Link>
-          </MenuItem>
+            </MenuItem>
+          </Link>
         ))}
       </List>
     </Drawer>

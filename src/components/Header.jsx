@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import { Menu,  ShoppingBasket } from '@mui/icons-material';
+import { Menu, ShoppingBasket } from '@mui/icons-material';
 import {
   AppBar,
   Box,
@@ -12,13 +12,10 @@ import {
   Toolbar,
 } from '@mui/material';
 
-import { pages } from '../data/data';
 import SearchCastom from './UI/SearchCastom';
-import DropMenu from './UI/DropMenu';
 
-function Header({ Basket }) {
+function Header({ pages, Basket, setOpenMenu }) {
   const [SearchFocus, setSearhFocus] = useState(false);
-  const [openMenu, setOpenMenu] = useState(null);
 
   return (
     <AppBar
@@ -91,19 +88,12 @@ function Header({ Basket }) {
           sx={{ display: { sx: ' flex', md: 'none' } }}
         >
           <Box sx={{ flexGrow: 2, display: 'flex', gap: 1 }}>
-            <>
               <IconButton
-                onClick={(e) => setOpenMenu(e.currentTarget)}
+                onClick={setOpenMenu}
                 color='inherit'
               >
                 <Menu />
               </IconButton>
-              <DropMenu
-                list={pages}
-                openMenu={openMenu}
-                closeMenu={() => setOpenMenu(null)}
-              />
-            </>
           </Box>
 
           <Link

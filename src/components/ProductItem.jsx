@@ -8,6 +8,7 @@ import {
   Typography,
 } from '@mui/material';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function ProductItem({ product }) {
   return (
@@ -25,20 +26,26 @@ function ProductItem({ product }) {
         },
       }}
     >
-      <CardActionArea>
-        <CardMedia
-          component='img'
-          height='140'
-          image={product.img}
-          alt='фото'
-        />
-        <CardContent
-          sx={{ display: 'flex', flexDirection: 'column', gap: '20px' }}
-        >
-          <Typography>{product.title}</Typography>
-          <Typography>{product.prise} грн</Typography>
-        </CardContent>
-      </CardActionArea>
+      <Link
+        className='link'
+        to={`/productions/${product.id}`}
+      >
+        <CardActionArea>
+          <CardMedia
+            component='img'
+            height='140'
+            image={product.img[0]}
+            alt='фото'
+          />
+          <CardContent
+            sx={{ display: 'flex', flexDirection: 'column', gap: '20px' }}
+          >
+            <Typography>{product.title}</Typography>
+            <Typography>{product.prise} грн</Typography>
+          </CardContent>
+        </CardActionArea>
+      </Link>
+
       <CardActions>
         <Button
           variant='outlined'

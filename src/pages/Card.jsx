@@ -3,17 +3,38 @@ import {
   AppBar,
   Box,
   Button,
+  List,
+  ListItem,
+  ListItemText,
   Tab,
   Tabs,
   Typography,
 } from '@mui/material';
 import React from 'react';
+import { useEffect } from 'react';
 import { useState } from 'react';
+import { useParams } from 'react-router';
 // import CaruselBox from '../components/CaruselBox';
+import { product } from '../data/product';
 
 function Card(props) {
+  const { id } = useParams();
+  const [ProductList, setProductList] = useState(product);
+  const [Product, setProduct] = useState({});
   const [value, setValue] = useState(0);
   const [Quantity, setQuantity] = useState(1);
+  
+  const addProduct = () => {
+    for (let i of ProductList) {
+      if (i.id === id) {
+        setProduct(i);
+      }
+    }
+  };
+  
+  useEffect(() => {
+    addProduct();
+  }, []);
   return (
     <Box
       sx={{
@@ -26,7 +47,7 @@ function Card(props) {
         variant='h4'
         sx={{ pb: '50px' }}
       >
-        Макарон із солоною карамеллю
+        {Product.title}
       </Typography>
 
       <Box
@@ -54,12 +75,12 @@ function Card(props) {
               width: '800px',
               borderRadius: '15px',
             }}
+            // src={Product.img[0]}
             src='https://scontent-iev1-1.xx.fbcdn.net/v/t1.6435-9/159265655_3843698749082372_7781602593632349880_n.jpg?stp=dst-jpg_s640x640&_nc_cat=106&ccb=1-7&_nc_sid=a26aad&_nc_ohc=k35yR-Ef0mcAX8GXRFS&_nc_ht=scontent-iev1-1.xx&oh=00_AT9M0VmJ0w653_YUbfC17mhB4XIyil9gDL0SGIGcVVbW8A&oe=635CE2A6'
-            alt=''
+            alt={Product.title}
           />
           <ArrowForwardIos fontSize='large' />
         </Box>
-
         <Box
           sx={{
             display: 'flex',
@@ -86,32 +107,22 @@ function Card(props) {
           </AppBar>
 
           {value ? (
-            <div style={{ fontSize: '15px' }}>
-              <ui>
-                <li>Миндальная мука — 150 гр.</li>
-                <li>Сахарная пудра — 150 гр.</li>
-                <li>Сахар — 150 гр.</li>
-                <li>Вода — 50 гр.</li>
-                <li>Белок — 50+50 гр.</li>
-                <li>Краситель</li>
-              </ui>
-            </div>
+            <List>
+              {Product.composition.map((item) => (
+                <ListItem key={item.name}>
+                  <ListItemText>{item.name} - {item.wig}</ListItemText>
+                </ListItem>
+              ))}
+            </List>
           ) : (
             <div>
-              <div>
-                Незалежно від погоди та настрою — цей макарон завжди у топі! ⠀
-                Такий простий смак, а скільки радості він приносить! Макарон із
-                солоною карамеллю, скільки б нових смаків не з'являлося, цей
-                завжди залишиться у фаворитах❤️ ⠀ Така ніжна і тягуча карамель,
-                допомогає залишити думки про реальність та поринути у солодкі
-                теплі спогади ✨
-              </div>
+              <div>{Product.description}</div>
               <br />
               <div>
-                <u>Вага:</u> 75 г
+                <u>Вага:</u> {Product.weight}
               </div>
               <div>
-                <u>Термин придатности:</u> 1 місяць
+                <u>Термин придатности:</u> {Product.shelfLife}
               </div>
             </div>
           )}
@@ -131,7 +142,7 @@ function Card(props) {
               }}
             >
               <div>
-                Цена <b>54</b> грн
+                Цена <b>{Product.prise}</b> грн
               </div>
               <div
                 style={{
