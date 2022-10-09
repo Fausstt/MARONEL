@@ -1,18 +1,17 @@
-import React from 'react';
-import { Box } from '@mui/material';
-import CaruselBox from '../components/CaruselBox';
-import PreviewList from '../components/GridList';
+import React from "react";
+import { Box } from "@mui/material";
+import CarouselBox from "../components/CarouselBox";
+import PreviewList from "../components/GridList";
 
 function Home({ previewImg, previewList }) {
   return (
     <Box
       style={{
-        display: 'flex',
-        flexDirection: 'column',
+        display: "flex",
+        flexDirection: "column",
         gap: 100,
-      }}
-    >
-      <CaruselBox previewImg={previewImg} fade/>
+      }}>
+      <CarouselBox previewImg={previewImg} w={"1550px"} h={"660px"} fade />
 
       <PreviewList previewList={previewList} />
     </Box>

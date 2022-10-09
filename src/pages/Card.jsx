@@ -14,7 +14,7 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { useParams } from 'react-router';
-import CaruselBox from '../components/CaruselBox';
+import CarouselBox from '../components/CarouselBox';
 import { product } from '../data/product';
 
 function Card(props) {
@@ -67,7 +67,7 @@ function Card(props) {
             height: '550px',
           }}
         >
-          <CaruselBox 
+          <CarouselBox 
           previewImg={Product.img} 
           w={'800px'}
           h={'500px'}

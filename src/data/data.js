@@ -1,8 +1,8 @@
 export const pages = [
-  { id: '1', lable: 'Про нас', href: '/' },
-  { id: '2', lable: 'Каталог', href: '/productions' },
-  { id: '3', lable: `Доставка та оплата`, href: '/' },
-  { id: '4', lable: 'Контакти', href: '/' },
+  { id: '1', label: 'Про нас', href: '/' },
+  { id: '2', label: 'Каталог', href: '/productions' },
+  { id: '3', label: `Доставка та оплата`, href: '/' },
+  { id: '4', label: 'Контакти', href: '/' },
 ];
 
 export const previewSlider = [
@@ -20,7 +20,7 @@ export const previewList = [
     id: 1,
     big: 7.5,
     small: 12,
-    img: 'https://scontent-iev1-1.xx.fbcdn.net/v/t39.30808-6/297855929_5382643345187897_8541246137247217201_n.jpg?stp=dst-jpg_s640x640&_nc_cat=101&ccb=1-7&_nc_sid=a26aad&_nc_ohc=m0y0IOuh6dAAX-6w2Uz&_nc_oc=AQlysVLqTo_YifYhRKedkcn6R7ws8vuhjl1z1EazFhYqcMQLic6gURnmtgpCURtDffQ&_nc_ht=scontent-iev1-1.xx&oh=00_AT-zi9jv1o06lsxGCxqcxJoT2K3k37xdRhM38xNlny_k5Q&oe=633A7960',
+    img: 'https://scontent-iev1-1.xx.fbcdn.net/v/t1.6435-9/156239357_3825884084197172_9032971653085256547_n.jpg?stp=dst-jpg_s640x640&_nc_cat=110&ccb=1-7&_nc_sid=a26aad&_nc_ohc=9pKB_LGyEPkAX-Kc61W&_nc_ht=scontent-iev1-1.xx&oh=00_AT-LE_QqYiqb2730pTOZHBhSwJqBAqPWG_nMAJV7nmYc2g&oe=635AE329',
     title: 'Lorem ipsum dolor sit amet.',
     body: 'Lorem ipsum dolor sit amet.',
   },
@@ -28,7 +28,7 @@ export const previewList = [
     id: 2,
     big: 4.5,
     small: 12,
-    img: 'https://scontent-iev1-1.xx.fbcdn.net/v/t39.30808-6/287794353_5230699883715578_1576639083620946838_n.jpg?stp=dst-jpg_s600x600&_nc_cat=102&ccb=1-7&_nc_sid=a26aad&_nc_ohc=WkPxXEzHMbEAX_0dur0&_nc_ht=scontent-iev1-1.xx&oh=00_AT_ekg5XpNuogb1p6Qqcb8mPHqiRrchNN8euIcy9Scit_A&oe=6338C897',
+    img: 'https://scontent-iev1-1.xx.fbcdn.net/v/t1.6435-9/152221017_3790694811049433_6669140640796970961_n.jpg?stp=dst-jpg_s640x640&_nc_cat=101&ccb=1-7&_nc_sid=a26aad&_nc_ohc=NP3y9WYlAg8AX-ogtlf&_nc_ht=scontent-iev1-1.xx&oh=00_AT8VPfMfMwQOMT9LFuY3fqj54FZBCyuUPKGlSy7WR7qSNA&oe=63590B15',
     title: 'Lorem ipsum dolor sit amet.',
     body: 'Lorem ipsum dolor sit amet.',
   },

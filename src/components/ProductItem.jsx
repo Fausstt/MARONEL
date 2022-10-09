@@ -20,6 +20,8 @@ function ProductItem({ product }) {
         maxWidth: 250,
         padding: 2,
         textAlign: 'center',
+        bgcolor:'#FFDFD0',
+        borderRadius:'15px',
         '&:hover': {
           boxShadow:
             '1px 1px .1em rgba(0, 0, 0, 0.5), -1px -1px .1em rgba(0, 0, 0, 0.5)',
@@ -48,13 +50,14 @@ function ProductItem({ product }) {
 
       <CardActions>
         <Button
-          variant='outlined'
+          variant='contained'
           sx={{
+            fontWeight:'700',
             transitionDuration: '0.5s',
             '&:hover': {
-              bgcolor: '#781026',
+              bgcolor: '#FFDFD0',
               borderColor: '#781026',
-              color: 'white',
+              color: 'black',
             },
           }}
         >
