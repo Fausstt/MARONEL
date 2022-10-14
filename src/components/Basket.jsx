@@ -8,38 +8,41 @@ import {
   Typography,
 } from '@mui/material';
 import React from 'react';
+import BasketListL from './BasketList';
 
-function Basket({ open, onClose }) {
+const styles = {
+  root: {
+    position: 'relative',
+    height: { xs: '100%', sm: '90%', md: '50%' },
+    width: { xs: '100%', sm: '90%', md: '50%' },
+    bgcolor: 'background.paper',
+    borderRadius: 3,
+    border: '2px solid #000',
+
+    boxShadow: 24,
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+  }
+}
+
+function Basket({ open, onClose, BasketList }) {
   return (
     <Modal
       open={open}
       onClose={onClose}
     >
-      <Box
-        sx={{
-          position: 'relative',
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          height: { xs: '100%', sm: '90%', md: '50%' },
-          width: { xs: '100%', sm: '90%', md: '50%' },
-          bgcolor: 'background.paper',
-          borderRadius: 3,
-          border: '2px solid #000',
-          boxShadow: 24,
-        }}
-      >
+      <Box sx={styles.root}>
         <Toolbar>
-          <Typography sx={{ flexGrow: 1 }}>Корзина</Typography>
-          <IconButton onClick={onClose}>
-            <Close />
-          </IconButton>
+          <Typography sx={{ flexGrow: 1 }} children={'Корзина'} />
+          <IconButton onClick={onClose} children={<Close />} />
         </Toolbar>
 
         <Divider
           sx={{ bgcolor: 'black' }}
           variant='fullWidth'
         />
+        <BasketListL />
       </Box>
     </Modal>
   );

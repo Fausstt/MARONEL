@@ -5,11 +5,11 @@ import { Link } from 'react-router-dom';
 function DropMenu({ openMenu, closeMenu, list }) {
   return (
     <Drawer
-      anchor='left'
+      anchor='top'
       open={openMenu}
       onClose={closeMenu}
     >
-      <List sx={{ width: '300px' }}>
+      <List sx={{ width: '500px' }}>
         {list.map((item) => (
           <Link
             className='link'
@@ -21,7 +21,7 @@ function DropMenu({ openMenu, closeMenu, list }) {
                 onClick={closeMenu}
                 sx={{ color: 'black' }}
               >
-                {item.lable}
+                {item.label}
               </Button>
             </MenuItem>
           </Link>

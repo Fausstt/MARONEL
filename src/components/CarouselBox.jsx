@@ -1,10 +1,9 @@
-import { Box } from "@mui/material";
 import React from "react";
 import { Carousel } from "react-bootstrap";
 
 function CarouselBox({
-  w = "1500px",
-  h = "660px",
+  w,
+  h,
   previewImg,
   fade,
   interval = "5000",
@@ -17,16 +16,16 @@ function CarouselBox({
     display: "block",
   };
   return (
-    <Box>
-      <Carousel interval={interval} indicators={false} fade={fade}>
-        {previewImg.map((item, index) => (
-          <Carousel.Item
-            key={index}
-            children={<img style={CarouselStyle} src={item} alt={index} />}
-          />
-        ))}
-      </Carousel>
-    </Box>
+    // <div>
+    <Carousel interval={interval} indicators={false} fade={fade}>
+      {previewImg.map((item, index) => (
+        <Carousel.Item
+          key={index}
+          children={<img style={CarouselStyle} src={item} alt={index} />}
+        />
+      ))}
+    </Carousel>
+    // {/* </div> */}
   );
 }
 

@@ -10,7 +10,7 @@ import {
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function ProductItem({ product }) {
+function ProductItem({ product, BasketAdd }) {
   return (
     <Card
       sx={{
@@ -20,8 +20,8 @@ function ProductItem({ product }) {
         maxWidth: 250,
         padding: 2,
         textAlign: 'center',
-        bgcolor:'#FFDFD0',
-        borderRadius:'15px',
+        bgcolor: '#FFDFD0',
+        borderRadius: '15px',
         '&:hover': {
           boxShadow:
             '1px 1px .1em rgba(0, 0, 0, 0.5), -1px -1px .1em rgba(0, 0, 0, 0.5)',
@@ -52,7 +52,7 @@ function ProductItem({ product }) {
         <Button
           variant='contained'
           sx={{
-            fontWeight:'700',
+            fontWeight: '700',
             transitionDuration: '0.5s',
             '&:hover': {
               bgcolor: '#FFDFD0',
@@ -60,11 +60,12 @@ function ProductItem({ product }) {
               color: 'black',
             },
           }}
+          onClick={() => BasketAdd(product)}
         >
           Добавить в корзину
         </Button>
       </CardActions>
-    </Card>
+    </Card >
   );
 }
 

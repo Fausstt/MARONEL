@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { Menu, ShoppingBasket } from "@mui/icons-material";
 import {
   AppBar,
+  Badge,
   Box,
   Button,
   Container,
@@ -15,9 +16,27 @@ import {
 import SearchCustom from "./UI/SearchCustom";
 import { useEffect } from "react";
 
-function Header({ pages, Basket, setOpenMenu }) {
+const styleLogo = {
+  mr: 2,
+  flexGrow: 1,
+  fontFamily: "monospace",
+  color: "inherit",
+  fontWeight: 700,
+  letterSpacing: ".3rem",
+  '@media screen and (minWidth: 900px)': {
+    mr: 4,
+    fontFamily: "monospace",
+    fontWeight: 700,
+    letterSpacing: ".3rem",
+    color: "inherit",
+  },
+}
+
+function Header({ pages, Basket, setOpenMenu, BasketList }) {
+
   const [SearchFocus, setSearchFocus] = useState(false);
   const [w, setW] = useState(window.innerWidth);
+
   useEffect(() => {
     const handleResize = () => {
       setW(window.innerWidth);
@@ -36,13 +55,7 @@ function Header({ pages, Basket, setOpenMenu }) {
           <Link className="link" to={"/"}>
             <IconButton
               variant="h6"
-              sx={{
-                mr: 4,
-                fontFamily: "monospace",
-                fontWeight: 700,
-                letterSpacing: ".3rem",
-                color: "white",
-              }}
+              sx={styleLogo}
               children={"MARONEL"}
             />
           </Link>
@@ -54,7 +67,6 @@ function Header({ pages, Basket, setOpenMenu }) {
                 </Button>
               </Link>
             ))}
-            {w}
           </Box>
 
           <Box
@@ -69,11 +81,16 @@ function Header({ pages, Basket, setOpenMenu }) {
                 setSearchFocus={setSearchFocus}
               />
             </>
-            <IconButton
-              color="inherit"
-              onClick={Basket}
-              children={<ShoppingBasket />}
-            />
+            <Badge
+              color="secondary"
+              badgeContent={BasketList.length}
+            >
+              <IconButton
+                color="inherit"
+                onClick={Basket}
+                children={<ShoppingBasket />}
+              />
+            </Badge>
           </Box>
         </Toolbar>
 
@@ -88,20 +105,10 @@ function Header({ pages, Basket, setOpenMenu }) {
           <Link
             className="link"
             to={"/"}
-            style={{
-              mr: 2,
-              flexGrow: 1,
-              fontFamily: "monospace",
-              color: "inherit",
-            }}>
+            style={styleLogo}>
             <IconButton
               variant="h5"
-              sx={{
-                mr: 2,
-                fontWeight: 700,
-                letterSpacing: ".3rem",
-                color: "inherit",
-              }}
+              sx={styleLogo}
               children={"MARONEL"}
             />
           </Link>
@@ -118,12 +125,16 @@ function Header({ pages, Basket, setOpenMenu }) {
                 setSearchFocus={setSearchFocus}
               />
             </>
-
-            <IconButton
-              color="inherit"
-              onClick={Basket}
-              children={<ShoppingBasket />}
-            />
+            <Badge
+              color="secondary"
+              badgeContent={BasketList.length}
+            >
+              <IconButton
+                color="inherit"
+                onClick={Basket}
+                children={<ShoppingBasket />}
+              />
+            </Badge>
           </Box>
         </Toolbar>
       </Container>

@@ -1,9 +1,8 @@
 import { Box, Divider, Typography } from '@mui/material';
 import React from 'react';
-import ProductItem from '../components/ProductItem';
 import ProductList from '../components/ProductList';
 
-function Productions(props) {
+function Productions({ BasketAdd }) {
   return (
     <Box>
       <Box
@@ -37,7 +36,7 @@ function Productions(props) {
 
         <Divider sx={{ bgcolor: 'black', margin: '20px 0' }} />
 
-        <ProductList />
+        <ProductList BasketAdd={BasketAdd} />
       </Box>
     </Box>
   );

@@ -1,11 +1,7 @@
-import { ArrowBackIos, ArrowForwardIos } from '@mui/icons-material';
 import {
   AppBar,
   Box,
   Button,
-  List,
-  ListItem,
-  ListItemText,
   Tab,
   Tabs,
   Typography,
@@ -17,10 +13,12 @@ import { useParams } from 'react-router';
 import CarouselBox from '../components/CarouselBox';
 import { product } from '../data/product';
 
-function Card(props) {
+import styles from '../styles/Card.styles'
+
+function Card({ BasketAdd }) {
   const { id } = useParams();
   const [ProductList, setProductList] = useState(product);
-  const [Product, setProduct] = useState({img: []});
+  const [Product, setProduct] = useState({ img: [] });
   const [value, setValue] = useState(0);
   const [Quantity, setQuantity] = useState(1);
 
@@ -35,55 +33,26 @@ function Card(props) {
   useEffect(() => {
     addProduct();
   }, []);
+
   return (
-    <Box
-      sx={{
-        bgcolor: 'white',
-        borderRadius: 1,
-        padding: 4,
-      }}
-    >
+    <Box sx={styles.container}>
       <Typography
         variant='h4'
-        sx={{ pb: '50px' }}
-      >
-        {Product.title}
-      </Typography>
+        sx={styles.title}
+        children={Product.title}
+      />
 
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: { xs: 'column', lg: 'row' },
-          alignItems: { xs: 'center', lg: 'normal' },
-          justifyContent: 'space-between',
-        }}
-      >
-        <Box
-          sx={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            width: '900px',
-            height: '550px',
-          }}
-        >
-          <CarouselBox 
-          previewImg={Product.img} 
-          w={'800px'}
-          h={'500px'}
-          interval={null}
+      <Box sx={styles.Box}>
+        <Box sx={styles.Box__Img}>
+          <CarouselBox
+            previewImg={Product.img}
+            w={'800px'}
+            h={'500px'}
+            interval={null}
           />
         </Box>
 
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'space-between',
-            position: 'relative',
-            width: '450px',
-          }}
-        >
+        <Box sx={styles.Box__body}>
           <AppBar
             position='static'
             color='default'
@@ -100,53 +69,31 @@ function Card(props) {
             </Tabs>
           </AppBar>
 
-          {value ? (
-            <List>
-              {Product.composition.map((item) => (
-                <ListItem key={item.name}>
-                  <ListItemText>
-                    {item.name} - {item.wig}
-                  </ListItemText>
-                </ListItem>
-              ))}
-            </List>
-          ) : (
-            <div>
-              <div>{Product.description}</div>
-              <br />
+          {value ?
+            (
               <div>
-                <u>Вага:</u> {Product.weight}
+                {Product.composition}
               </div>
+            ) : (
               <div>
-                <u>Термин придатности:</u> {Product.shelfLife}
+                <div>{Product.description}</div>
+                <br />
+                <div>
+                  <u>Вага:</u> {Product.weight}
+                  <br />
+                  <u>Термин придатности:</u> {Product.shelfLife}
+                </div>
               </div>
-            </div>
-          )}
-          <div
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '20px',
-            }}
-          >
-            <div
-              style={{
-                display: 'flex',
-                gap: '30px',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-              }}
-            >
+            )}
+
+          <Box sx={styles.Box__footer}>
+            <div style={styles.Box__footer__1}>
               <div>
                 Цена <b>{Product.prise}</b> грн
               </div>
-              <div
-                style={{
-                  display: 'flex',
-                  gap: '15px',
-                  alignItems: 'center',
-                }}
-              >
+
+              <Box sx={styles.Box__footer__2}>
+
                 <div>Кі-сть</div>
                 <Button onClick={() => setQuantity(Quantity - 1)}>
                   <Typography variant='h5'>-</Typography>
@@ -155,16 +102,22 @@ function Card(props) {
                 <Button onClick={() => setQuantity(Quantity + 1)}>
                   <Typography variant='h5'>+</Typography>
                 </Button>
-              </div>
+
+              </Box>
             </div>
+
             <div>
-              <Button variant='contained'>добавить в корзину</Button>
+              <Button
+                onClick={() => BasketAdd(Product)}
+                variant='contained'
+                children={'добавить в корзину'}
+              />
             </div>
             <div>Замовити за телефоном +38 (66) 000 33 88</div>
-          </div>
+          </Box>
         </Box>
       </Box>
-    </Box>
+    </Box >
   );
 }
 

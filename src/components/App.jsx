@@ -20,7 +20,11 @@ import { pages } from "../data/data";
 function App(props) {
   const [isBasket, setIsBasket] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);
-
+  // Корзина
+  const [BasketList, setBasketList] = useState([])
+  // добавить в корзину
+  const BasketAdd = (Product) => setBasketList([...BasketList, Product])
+  // console.log(BasketList.length);
   return (
     <>
       <>
@@ -28,6 +32,7 @@ function App(props) {
           pages={pages}
           setOpenMenu={() => setOpenMenu(true)}
           Basket={() => setIsBasket(true)}
+          BasketList={BasketList}
         />
 
         <Container maxWidth="xl">
@@ -39,14 +44,18 @@ function App(props) {
                 <Home previewImg={previewSlider} previewList={previewList} />
               }
             />
-            <Route path="/productions" element={<Productions />} />
-            <Route path="/productions/:id" element={<Card />} />
+            <Route path="/productions" element={<Productions BasketAdd={BasketAdd} />} />
+            <Route path="/productions/:id" element={<Card BasketAdd={BasketAdd} />} />
           </Routes>
         </Container>
 
         <Footer />
       </>
-      <Basket open={isBasket} onClose={() => setIsBasket(false)} />
+      <Basket
+        BasketList={BasketList}
+        open={isBasket}
+        onClose={() => setIsBasket(false)}
+      />
       <DropMenu
         list={pages}
         openMenu={openMenu}

@@ -4,12 +4,12 @@ import ProductItem from './ProductItem';
 
 import { product } from '../data/product';
 
-function ProductList(props) {
+function ProductList({ BasketAdd }) {
   return (
     <Grid
-    container
-    spacing={5}
-    sx={{padding:2}}
+      container
+      spacing={5}
+      sx={{ padding: 2 }}
     >
       {product.map((item) => (
         <Grid
@@ -23,7 +23,7 @@ function ProductList(props) {
           sm={6}
           md={3}
         >
-          <ProductItem product={item} />
+          <ProductItem product={item} BasketAdd={BasketAdd} />
         </Grid>
       ))}
     </Grid>
