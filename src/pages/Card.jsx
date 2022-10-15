@@ -11,6 +11,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { useParams } from 'react-router';
 import CarouselBox from '../components/CarouselBox';
+import { Counter } from '../components/UI/Counter';
 import { product } from '../data/product';
 
 import styles from '../styles/Card.styles'
@@ -21,6 +22,8 @@ function Card({ BasketAdd }) {
   const [Product, setProduct] = useState({ img: [] });
   const [value, setValue] = useState(0);
   const [Quantity, setQuantity] = useState(1);
+
+
 
   const addProduct = () => {
     for (let i of ProductList) {
@@ -46,8 +49,8 @@ function Card({ BasketAdd }) {
         <Box sx={styles.Box__Img}>
           <CarouselBox
             previewImg={Product.img}
-            w={'800px'}
-            h={'500px'}
+            w={{ xs: '500px', md: '800px' }}
+            h={{ xs: '350px', md: '500px' }}
             interval={null}
           />
         </Box>
@@ -93,16 +96,11 @@ function Card({ BasketAdd }) {
               </div>
 
               <Box sx={styles.Box__footer__2}>
-
                 <div>Кі-сть</div>
-                <Button onClick={() => setQuantity(Quantity - 1)}>
-                  <Typography variant='h5'>-</Typography>
-                </Button>
-                <Typography variant='h6'>{Quantity}</Typography>
-                <Button onClick={() => setQuantity(Quantity + 1)}>
-                  <Typography variant='h5'>+</Typography>
-                </Button>
-
+                <Counter
+                  Number={Quantity}
+                  setNumber={setQuantity}
+                />
               </Box>
             </div>
 

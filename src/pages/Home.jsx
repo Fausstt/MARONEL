@@ -11,7 +11,7 @@ function Home({ previewImg, previewList }) {
         flexDirection: "column",
         gap: 100,
       }}>
-      <CarouselBox previewImg={previewImg} w={"1550px"} h={"660px"} fade />
+      <CarouselBox previewImg={previewImg} w={{ xs: '100%' }} h={{ xs: '660px' }} fade />
 
       <PreviewList previewList={previewList} />
     </Box>

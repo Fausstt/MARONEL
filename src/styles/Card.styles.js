@@ -7,16 +7,14 @@ const styles = {
 
     Box: {
         display: 'flex',
-        flexDirection: { xs: 'column', lg: 'row' },
-        alignItems: { xs: 'center', lg: 'normal' },
+        flexDirection: { xs: 'column', md: 'row' },
+        alignItems: { xs: 'center', md: 'normal' },
         justifyContent: 'space-between',
     },
 
     title: { pb: '50px' },
 
     Box__Img: {
-        width: '800px',
-        height: '500px',
         m: '20px 30px',
     },
 

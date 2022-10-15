@@ -24,7 +24,6 @@ function App(props) {
   const [BasketList, setBasketList] = useState([])
   // добавить в корзину
   const BasketAdd = (Product) => setBasketList([...BasketList, Product])
-  // console.log(BasketList.length);
   return (
     <>
       <>
