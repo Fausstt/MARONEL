@@ -6,42 +6,53 @@ import {
   CardContent,
   CardMedia,
   Typography,
-} from '@mui/material';
-import React from 'react';
-import { Link } from 'react-router-dom';
+} from "@mui/material";
+import React from "react";
+import { Link } from "react-router-dom";
 
-function ProductItem({ product, BasketAdd }) {
+const styles = {
+  Card: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    maxWidth: 250,
+    padding: 2,
+    textAlign: "center",
+    bgcolor: "#FFDFD0",
+    borderRadius: "15px",
+    "&:hover": {
+      boxShadow:
+        "1px 1px .1em rgba(0, 0, 0, 0.5), -1px -1px .1em rgba(0, 0, 0, 0.5)",
+
+      Context: {
+        display: "flex",
+        flexDirection: "column",
+        gap: "20px",
+      },
+    },
+    Button:{
+      fontWeight: "700",
+      transitionDuration: "0.5s",
+      "&:hover": {
+        bgcolor: "#FFDFD0",
+        borderColor: "#781026",
+        color: "black",
+    }
+  },
+};
+
+function ProductItem({ product, BasketAdd, Basket }) {
   return (
-    <Card
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        maxWidth: 250,
-        padding: 2,
-        textAlign: 'center',
-        bgcolor: '#FFDFD0',
-        borderRadius: '15px',
-        '&:hover': {
-          boxShadow:
-            '1px 1px .1em rgba(0, 0, 0, 0.5), -1px -1px .1em rgba(0, 0, 0, 0.5)',
-        },
-      }}
-    >
-      <Link
-        className='link'
-        to={`/productions/${product.id}`}
-      >
+    <Card sx={styles.Card}>
+      <Link className="link" to={`/productions/${product.id}`}>
         <CardActionArea>
           <CardMedia
-            component='img'
-            height='140'
+            component="img"
+            height="140"
             image={product.img[0]}
-            alt='фото'
+            alt="фото"
           />
-          <CardContent
-            sx={{ display: 'flex', flexDirection: 'column', gap: '20px' }}
-          >
+          <CardContent sx={styles.Card.Context}>
             <Typography>{product.title}</Typography>
             <Typography>{product.prise} грн</Typography>
           </CardContent>
@@ -50,22 +61,13 @@ function ProductItem({ product, BasketAdd }) {
 
       <CardActions>
         <Button
-          variant='contained'
-          sx={{
-            fontWeight: '700',
-            transitionDuration: '0.5s',
-            '&:hover': {
-              bgcolor: '#FFDFD0',
-              borderColor: '#781026',
-              color: 'black',
-            },
-          }}
+          variant="contained"
+          sx={styles.Card.Button}
           onClick={() => BasketAdd(product)}
-        >
-          Добавить в корзину
-        </Button>
+          children={'Добавить в корзину'}
+        />
       </CardActions>
-    </Card >
+    </Card>
   );
 }
 

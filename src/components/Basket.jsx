@@ -12,6 +12,9 @@ import BasketListL from './BasketList';
 
 const styles = {
   root: {
+    display: 'flex',
+    flexDirection: 'column',
+
     position: 'relative',
     height: { xs: '100%', sm: '90%', md: '50%' },
     width: { xs: '100%', sm: '90%', md: '50%' },
@@ -42,7 +45,9 @@ function Basket({ open, onClose, BasketList }) {
           sx={{ bgcolor: 'black' }}
           variant='fullWidth'
         />
+
         <BasketListL />
+
       </Box>
     </Modal>
   );

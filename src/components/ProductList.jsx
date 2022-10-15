@@ -4,7 +4,7 @@ import ProductItem from './ProductItem';
 
 import { product } from '../data/product';
 
-function ProductList({ BasketAdd }) {
+function ProductList({ BasketAdd, Basket }) {
   return (
     <Grid
       container
@@ -23,7 +23,7 @@ function ProductList({ BasketAdd }) {
           sm={6}
           md={3}
         >
-          <ProductItem product={item} BasketAdd={BasketAdd} />
+          <ProductItem product={item} BasketAdd={BasketAdd} Basket={Basket} />
         </Grid>
       ))}
     </Grid>

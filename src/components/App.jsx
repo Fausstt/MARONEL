@@ -18,7 +18,7 @@ import { previewSlider, previewList } from "../data/data";
 import { pages } from "../data/data";
 
 function App(props) {
-  const [isBasket, setIsBasket] = useState(false);
+  const [isBasket, setIsBasket] = useState(true);
   const [openMenu, setOpenMenu] = useState(false);
   // Корзина
   const [BasketList, setBasketList] = useState([])
@@ -43,8 +43,8 @@ function App(props) {
                 <Home previewImg={previewSlider} previewList={previewList} />
               }
             />
-            <Route path="/productions" element={<Productions BasketAdd={BasketAdd} />} />
-            <Route path="/productions/:id" element={<Card BasketAdd={BasketAdd} />} />
+            <Route path="/productions" element={<Productions BasketAdd={BasketAdd} Basket={Basket} />} />
+            <Route path="/productions/:id" element={<Card BasketAdd={BasketAdd} Basket={Basket} />} />
           </Routes>
         </Container>
 
