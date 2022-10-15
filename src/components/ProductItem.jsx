@@ -30,14 +30,15 @@ const styles = {
         gap: "20px",
       },
     },
-    Button:{
+    Button: {
       fontWeight: "700",
       transitionDuration: "0.5s",
       "&:hover": {
         bgcolor: "#FFDFD0",
         borderColor: "#781026",
         color: "black",
-    }
+      },
+    },
   },
 };
 
@@ -64,7 +65,7 @@ function ProductItem({ product, BasketAdd, Basket }) {
           variant="contained"
           sx={styles.Card.Button}
           onClick={() => BasketAdd(product)}
-          children={'Добавить в корзину'}
+          children={"Добавить в корзину"}
         />
       </CardActions>
     </Card>
