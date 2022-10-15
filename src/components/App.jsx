@@ -18,12 +18,12 @@ import { previewSlider, previewList } from "../data/data";
 import { pages } from "../data/data";
 
 function App(props) {
-  const [isBasket, setIsBasket] = useState(true);
+  const [isBasket, setIsBasket] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);
   // Корзина
-  const [BasketList, setBasketList] = useState([])
+  const [BasketList, setBasketList] = useState([]);
   // добавить в корзину
-  const BasketAdd = (Product) => setBasketList([...BasketList, Product])
+  const BasketAdd = (Product) => setBasketList([...BasketList, Product]);
   return (
     <>
       <>
@@ -43,8 +43,14 @@ function App(props) {
                 <Home previewImg={previewSlider} previewList={previewList} />
               }
             />
-            <Route path="/productions" element={<Productions BasketAdd={BasketAdd} Basket={Basket} />} />
-            <Route path="/productions/:id" element={<Card BasketAdd={BasketAdd} Basket={Basket} />} />
+            <Route
+              path="/productions"
+              element={<Productions BasketAdd={BasketAdd} Basket={Basket} />}
+            />
+            <Route
+              path="/productions/:id"
+              element={<Card BasketAdd={BasketAdd} Basket={Basket} />}
+            />
           </Routes>
         </Container>
 
