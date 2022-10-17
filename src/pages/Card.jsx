@@ -4,7 +4,6 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router";
 import CarouselBox from "../components/CarouselBox";
-import { Counter } from "../components/UI/Counter";
 import { product } from "../data/product";
 
 import styles from "../styles/Card.styles";
@@ -16,26 +15,29 @@ function Card({ BasketAdd, BasketList }) {
     const [AddedBasket, setAddedBasket] = useState(false);
 
     const [value, setValue] = useState(0);
-    // const [Quantity, setQuantity] = useState(1);
 
-    const addProduct = () => {
+    function addProduct() {
         for (let i of ProductList) {
             if (i.id === id) {
                 setProduct(i);
             }
         }
+    }
+    function ddedBasket() {
         if (BasketList.length) {
             for (let i of BasketList) {
-                if (i.id === id) {
+                if (i.id === Product.id) {
                     setAddedBasket(true);
-                }
+                    break;
+                } else setAddedBasket(false);
             }
         } else setAddedBasket(false);
-    };
+    }
 
     useEffect(() => {
         addProduct();
-    }, [BasketList, id]);
+        ddedBasket();
+    }, [BasketList, id, Product]);
 
     return (
         <Box sx={styles.container}>
@@ -82,27 +84,24 @@ function Card({ BasketAdd, BasketList }) {
                             <div>
                                 Цена <b>{Product.prise}</b> грн
                             </div>
-
-                            {/* <Box sx={styles.Box__footer__2}>
-                                <div>Кі-сть</div>
-                                <Counter
-                                    Number={Quantity}
-                                    setNumber={setQuantity}
-                                />
-                            </Box> */}
                         </div>
 
                         <div>
-                            <Button
-                                onClick={() => BasketAdd(Product, AddedBasket)}
-                                variant="contained"
-                                color={AddedBasket ? "BasketButton" : "primary"}
-                                children={
-                                    AddedBasket
-                                        ? "Вже в кошику"
-                                        : "додати в кошик"
-                                }
-                            />
+                            {AddedBasket ? (
+                                <Button
+                                    onClick={() => BasketAdd(Product)}
+                                    variant="contained"
+                                    color={"BasketButton"}
+                                    children={"Вже в кошику"}
+                                />
+                            ) : (
+                                <Button
+                                    onClick={() => BasketAdd(Product)}
+                                    variant="contained"
+                                    color={"primary"}
+                                    children={"додати в кошик"}
+                                />
+                            )}
                         </div>
                         <div>Замовити за телефоном +38 (66) 000 33 88</div>
                     </Box>

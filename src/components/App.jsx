@@ -23,10 +23,16 @@ function App(props) {
     // Корзина
     const [BasketList, setBasketList] = useState([]);
     // добавить в корзину
-    const BasketAdd = (Product, AddedBasked = true) => {
-        AddedBasked
-            ? setBasketList(BasketList.filter((item) => item.id !== Product.id))
-            : setBasketList([...BasketList, { ...Product, Quantity: 1 }]);
+    const BasketAdd = (Product) => {
+        for (let i of BasketList) {
+            if (i.id === Product.id) {
+                setBasketList(
+                    BasketList.filter((item) => item.id !== Product.id)
+                );
+                return;
+            }
+        }
+        setBasketList([...BasketList, { ...Product, Quantity: 1 }]);
     };
     return (
         <>

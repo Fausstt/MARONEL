@@ -41,7 +41,8 @@ function ProductItem({ product, BasketAdd, BasketList }) {
             for (let i of BasketList) {
                 if (i.id === product.id) {
                     setAddedBasket(true);
-                }
+                    break;
+                } else setAddedBasket(false);
             }
         } else setAddedBasket(false);
     };
@@ -68,12 +69,21 @@ function ProductItem({ product, BasketAdd, BasketList }) {
             </Link>
 
             <CardActions>
-                <Button
-                    onClick={() => BasketAdd(product, AddedBasket)}
-                    variant="contained"
-                    color={AddedBasket ? "BasketButton" : "primary"}
-                    children={AddedBasket ? "Вже в кошику" : "добавить в кошик"}
-                />
+                {AddedBasket ? (
+                    <Button
+                        onClick={() => BasketAdd(product)}
+                        variant="contained"
+                        color={"BasketButton"}
+                        children={"Вже в кошику"}
+                    />
+                ) : (
+                    <Button
+                        onClick={() => BasketAdd(product)}
+                        variant="contained"
+                        color={"primary"}
+                        children={"додати в кошик"}
+                    />
+                )}
             </CardActions>
         </Card>
     );
