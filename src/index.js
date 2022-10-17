@@ -21,7 +21,15 @@ const theme = createTheme({
       main: "#781026",
     },
     secondary: {
-      main: "#f16861",
+      main: "#FFBFA0",
+    },
+    BasketButton: {
+      main: "#00A046",
+      contrastText: "#fff",
+    },
+    DopButton: {
+      main: "#F5F5F5",
+      contrastText: "#3E77AA",
     },
   },
 });
