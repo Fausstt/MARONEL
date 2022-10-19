@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/MARONEL/static/css/main.6fb447db.css",
-    "main.js": "/MARONEL/static/js/main.3d613c7b.js",
+    "main.js": "/MARONEL/static/js/main.954a4834.js",
     "index.html": "/MARONEL/index.html",
     "main.6fb447db.css.map": "/MARONEL/static/css/main.6fb447db.css.map",
-    "main.3d613c7b.js.map": "/MARONEL/static/js/main.3d613c7b.js.map"
+    "main.954a4834.js.map": "/MARONEL/static/js/main.954a4834.js.map"
   },
   "entrypoints": [
     "static/css/main.6fb447db.css",
-    "static/js/main.3d613c7b.js"
+    "static/js/main.954a4834.js"
   ]
 }
