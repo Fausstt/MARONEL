@@ -72,9 +72,10 @@ function Card({ BasketAdd, BasketList }) {
                             <div>{Product.description}</div>
                             <br />
                             <div>
-                                <u>Вага:</u> {Product.weight}
+                                <u>Вага:</u> {Product.weight} г
                                 <br />
-                                <u>Термин придатности:</u> {Product.shelfLife}
+                                <u>Термин придатности:</u> {Product.shelfLife}{" "}
+                                днів
                             </div>
                         </div>
                     )}
@@ -82,7 +83,7 @@ function Card({ BasketAdd, BasketList }) {
                     <Box sx={styles.Box__footer}>
                         <div style={styles.Box__footer__1}>
                             <div>
-                                Цена <b>{Product.prise}</b> грн
+                                Цена: <b>{Product.prise}</b> грн
                             </div>
                         </div>
 

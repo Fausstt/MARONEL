@@ -14,29 +14,20 @@ import {
 } from "@mui/material";
 
 import SearchCustom from "./UI/SearchCustom";
-import { useEffect } from "react";
+import Logo from "./UI/Logo";
 
 const styles = {
     Big: {
         display: { xs: "none", md: "flex" },
+        justifyContent: "space-between",
 
-        logo: {
-            mr: 2,
-            flexGrow: 1,
-            fontFamily: "monospace",
-            color: "inherit",
-            fontWeight: 700,
-            letterSpacing: ".3rem",
-        },
         Link: {
-            flexGrow: 1,
             display: "flex",
             gap: 1,
 
             Button: {
                 my: 2,
                 color: "white",
-                display: "block",
             },
         },
         Button: {
@@ -52,13 +43,6 @@ const styles = {
             mr: 15,
         },
 
-        logo: {
-            mr: 4,
-            fontFamily: "monospace",
-            fontWeight: 700,
-            letterSpacing: ".3rem",
-            color: "inherit",
-        },
         Button: {
             flexGrow: 0,
             display: "flex",
@@ -69,39 +53,41 @@ const styles = {
 
 function Header({ pages, Basket, setOpenMenu, BasketList }) {
     const [SearchFocus, setSearchFocus] = useState(false);
-    const [w, setW] = useState(window.innerWidth);
-
-    useEffect(() => {
-        const handleResize = () => {
-            setW(window.innerWidth);
-        };
-        window.addEventListener("resize", handleResize);
-        return () => {
-            window.removeEventListener("resize", handleResize);
-        };
-    }, []);
 
     return (
-        <AppBar position="static" sx={{ mb: "30px" }}>
+        <AppBar position="sticky" sx={{ mb: "30px" }}>
             <Container maxWidth="xl">
                 {/* большой */}
                 <Toolbar disableGutters sx={styles.Big}>
-                    <Link className="link" to={"/"}>
-                        <IconButton
-                            variant="h6"
-                            sx={styles.Big.logo}
-                            children={"MARONEL"}
-                        />
-                    </Link>
-                    <Box sx={styles.Big.Link}>
-                        {pages.map((item) => (
-                            <Link key={item.id} to={item.href} className="link">
-                                <Button
-                                    sx={styles.Big.Link.Button}
-                                    children={item.label}
-                                />
-                            </Link>
-                        ))}
+                    <Box
+                        sx={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: 1,
+                        }}
+                    >
+                        <Link className="link" to={"/"}>
+                            <Button
+                                children={
+                                    <Logo h={"30px"} onClick={setOpenMenu} />
+                                }
+                            />
+                        </Link>
+
+                        <Box sx={styles.Big.Link}>
+                            {pages.map((item) => (
+                                <Link
+                                    key={item.id}
+                                    to={item.href}
+                                    className="link"
+                                >
+                                    <Button
+                                        sx={styles.Big.Link.Button}
+                                        children={item.label}
+                                    />
+                                </Link>
+                            ))}
+                        </Box>
                     </Box>
                     <Box sx={styles.Big.Button}>
                         <SearchCustom
@@ -131,12 +117,8 @@ function Header({ pages, Basket, setOpenMenu, BasketList }) {
                         children={<Menu />}
                     />
 
-                    <Link className="link" to={"/"} style={styles.Small.logo}>
-                        <IconButton
-                            variant="h5"
-                            sx={styles.Small.logo}
-                            children={"MARONEL"}
-                        />
+                    <Link className="link" to={"/"}>
+                        <IconButton children={<Logo />} />
                     </Link>
 
                     <Box sx={styles.Small.Button}>

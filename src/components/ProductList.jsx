@@ -2,12 +2,10 @@ import { Grid } from "@mui/material";
 import React from "react";
 import ProductItem from "./ProductItem";
 
-import { product } from "../data/product";
-
-function ProductList({ BasketAdd, BasketList }) {
+function ProductList({ BasketAdd, BasketList, Product }) {
     return (
         <Grid container spacing={5} sx={{ padding: 2 }}>
-            {product.map((item) => (
+            {Product.map((item) => (
                 <Grid
                     key={item.id}
                     item

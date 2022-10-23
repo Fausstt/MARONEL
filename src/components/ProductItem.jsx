@@ -15,7 +15,8 @@ const styles = {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        maxWidth: 250,
+        justifyContent: "space-between",
+        width: 250,
         padding: 2,
         textAlign: "center",
         bgcolor: "#FFDFD0",
@@ -23,11 +24,18 @@ const styles = {
         "&:hover": {
             boxShadow:
                 "1px 1px .1em rgba(0, 0, 0, 0.5), -1px -1px .1em rgba(0, 0, 0, 0.5)",
-
-            Context: {
-                display: "flex",
-                flexDirection: "column",
-                gap: "20px",
+        },
+        Context: {
+            display: "flex",
+            flexDirection: "column",
+            gap: "10px",
+        },
+        Link: {
+            width: "90%",
+            textDecoration: "none",
+            color: "inherit",
+            "&:hover": {
+                color: "inherit",
             },
         },
     },
@@ -53,12 +61,16 @@ function ProductItem({ product, BasketAdd, BasketList }) {
 
     return (
         <Card sx={styles.Card}>
-            <Link className="link" to={`/productions/${product.id}`}>
+            <Link style={styles.Card.Link} to={`/productions/${product.id}`}>
                 <CardActionArea>
                     <CardMedia
                         component="img"
                         height="140"
-                        image={product.img[0]}
+                        image={
+                            product.img[0]
+                                ? product.img[0]
+                                : "https://via.placeholder.com/130"
+                        }
                         alt="фото"
                     />
                     <CardContent sx={styles.Card.Context}>
