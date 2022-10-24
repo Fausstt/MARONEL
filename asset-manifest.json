@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/MARONEL/static/css/main.6fb447db.css",
-    "main.js": "/MARONEL/static/js/main.ae4f8233.js",
+    "main.js": "/MARONEL/static/js/main.01208e36.js",
     "static/media/logo.png": "/MARONEL/static/media/logo.d4868d30ce1e270ed598.png",
     "index.html": "/MARONEL/index.html",
     "main.6fb447db.css.map": "/MARONEL/static/css/main.6fb447db.css.map",
-    "main.ae4f8233.js.map": "/MARONEL/static/js/main.ae4f8233.js.map"
+    "main.01208e36.js.map": "/MARONEL/static/js/main.01208e36.js.map"
   },
   "entrypoints": [
     "static/css/main.6fb447db.css",
-    "static/js/main.ae4f8233.js"
+    "static/js/main.01208e36.js"
   ]
 }
