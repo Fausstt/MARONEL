@@ -46,9 +46,9 @@ function App(props) {
 
                 <Container maxWidth="xl">
                     <Routes>
-                        <Route path="*" element={<ErrorPages />} />
+                        {/* <Route path="*" element={<ErrorPages />} /> */}
                         <Route
-                            path="/"
+                            path="*"
                             element={
                                 <Home
                                     previewImg={previewSlider}
